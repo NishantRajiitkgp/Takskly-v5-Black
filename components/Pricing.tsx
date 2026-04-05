@@ -8,9 +8,9 @@ export function Pricing() {
   const [hoveredCol, setHoveredCol] = useState<number | null>(null);
 
   const plans = [
-    { name: 'STANDARD', price: '$99', popular: false, cta: 'Book Standard', accent: 'from-blue-500/10 to-cyan-500/5' },
-    { name: 'DEEP CLEAN', price: '$279', popular: true, cta: 'Book Deep Clean', accent: 'from-gold/15 to-gold/5' },
-    { name: 'MOVE-IN/OUT', price: '$349', popular: false, cta: 'Book Move-In', accent: 'from-violet-500/10 to-purple-500/5' },
+    { name: 'Standard', price: '$99', popular: false, cta: 'Book Standard', accent: 'from-blue-500/10 to-cyan-500/5' },
+    { name: 'Deep Clean', price: '$279', popular: true, cta: 'Book Deep Clean', accent: 'from-gold/15 to-gold/5' },
+    { name: 'Move-in/out', price: '$349', popular: false, cta: 'Book Move-In', accent: 'from-violet-500/10 to-purple-500/5' },
   ];
 
   const features = [
@@ -46,7 +46,7 @@ export function Pricing() {
         viewport={{ once: true }}
         className="mb-6"
       >
-        <h2 className="font-display text-[52px] md:text-[100px] font-800 leading-[0.88] tracking-[-0.04em] uppercase">
+        <h2 className="font-display text-[52px] md:text-[100px] font-800 leading-[0.88] tracking-[-0.03em]">
           No surprises<span className="text-gold">.</span><br />
           Ever<span className="text-gold">.</span>
         </h2>
@@ -96,7 +96,7 @@ export function Pricing() {
                     {/* Popular badge */}
                     {plan.popular && (
                       <span className={`inline-block ml-3 font-mono text-[8px] font-700 uppercase tracking-[0.2em] px-2.5 py-1 transition-colors duration-500 ${
-                        isHovered ? 'bg-gold text-rich-black' : 'bg-gold text-rich-black'
+                        isHovered ? 'bg-cream text-rich-black' : 'bg-rich-black text-cream'
                       }`}>
                         Popular
                       </span>
@@ -207,7 +207,7 @@ export function Pricing() {
                     href="#book"
                     className={`inline-flex items-center justify-center w-full py-4.5 font-mono text-[10px] font-700 uppercase tracking-[0.15em] transition-all duration-500 group ${
                       plan.popular || isHovered
-                        ? 'bg-rich-black text-cream hover:bg-gold hover:text-rich-black'
+                        ? 'bg-rich-black text-cream hover:bg-warm-gray'
                         : 'bg-transparent border border-border text-rich-black hover:border-rich-black'
                     }`}
                   >

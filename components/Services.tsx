@@ -11,28 +11,28 @@ export function Services() {
   const services = [
     {
       id: '01',
-      name: 'CLEANING',
+      name: 'Cleaning',
       description: 'Standard \u00b7 Deep \u00b7 Move-in/out',
       price: 'From $99',
       image: '/assets/CLEANING.jpg',
     },
     {
       id: '02',
-      name: 'EMERGENCY',
+      name: 'Emergency',
       description: 'Plumbing \u00b7 Electrical \u00b7 Locks',
       price: '15 min response',
       image: '/assets/EMERGENCY.jpg',
     },
     {
       id: '03',
-      name: 'MAINTENANCE',
+      name: 'Maintenance',
       description: 'Handyman \u00b7 Painting \u00b7 Assembly',
       price: 'From $75/hr',
       image: '/assets/MAINTENANCE.jpg',
     },
     {
       id: '04',
-      name: 'SEASONAL',
+      name: 'Seasonal',
       description: 'Snow \u00b7 Lawn \u00b7 Gutters \u00b7 Windows',
       price: 'From $45/visit',
       image: '/assets/SEASONAL.jpg',
@@ -64,7 +64,7 @@ export function Services() {
               whileInView={{ y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-              className="font-display text-[48px] md:text-[88px] leading-[0.88] font-800 tracking-[-0.04em] uppercase"
+              className="font-display text-[48px] md:text-[88px] leading-[0.88] font-800 tracking-[-0.03em]"
             >
               Everything<br />you need<span className="text-gold">.</span>
             </motion.h2>
@@ -97,17 +97,17 @@ export function Services() {
                 href={`#${service.name.toLowerCase()}`}
                 onMouseEnter={() => setHoveredService(service.id)}
                 onMouseLeave={() => setHoveredService(null)}
-                className="group flex flex-col md:flex-row md:items-center justify-between py-10 md:py-12 border-b border-border hover:border-gold/30 transition-colors duration-500 relative overflow-hidden"
+                className="group flex flex-col md:flex-row md:items-center justify-between py-10 md:py-12 border-b border-border hover:border-rich-black/20 transition-colors duration-500 relative overflow-hidden"
               >
                 {/* Hover sweep */}
                 <div className="absolute inset-0 bg-gold-muted translate-y-full group-hover:translate-y-0 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] z-0" />
 
                 <div className="flex items-baseline gap-6 md:gap-8 z-10">
-                  <span className="font-mono text-[10px] font-700 text-warm-gray group-hover:text-gold transition-colors duration-300">
+                  <span className="font-mono text-[10px] font-700 text-warm-gray group-hover:text-warm-gray transition-colors duration-300">
                     {service.id}
                   </span>
                   <div>
-                    <h3 className="font-display text-[36px] md:text-[56px] font-800 tracking-[-0.03em] uppercase group-hover:text-gold transition-colors duration-400">
+                    <h3 className="font-display text-[36px] md:text-[56px] font-800 tracking-[-0.03em] group-hover:text-warm-gray transition-colors duration-400">
                       {service.name}
                     </h3>
                     <p className="font-mono text-[10px] font-600 uppercase tracking-[0.15em] text-rich-black/45 mt-1.5">

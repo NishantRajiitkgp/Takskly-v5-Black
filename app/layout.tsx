@@ -1,16 +1,16 @@
 import type {Metadata} from 'next';
-import { Syne, DM_Sans, JetBrains_Mono } from 'next/font/google';
+import { Outfit, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const syne = Syne({
+const outfit = Outfit({
   subsets: ['latin'],
-  variable: '--font-syne',
+  variable: '--font-outfit',
   weight: ['400', '500', '600', '700', '800'],
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
+  variable: '--font-inter',
   weight: ['400', '500', '600', '700'],
 });
 
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="bg-cream text-rich-black antialiased overflow-x-hidden" suppressHydrationWarning>{children}</body>
     </html>
   );

@@ -40,7 +40,7 @@ export function NavBar() {
             <Link
               key={item}
               href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-              className="font-mono text-[10px] font-700 uppercase tracking-[0.18em] text-rich-black hover:text-gold transition-colors duration-300"
+              className="font-mono text-[10px] font-700 uppercase tracking-[0.18em] text-rich-black hover:text-warm-gray transition-colors duration-300"
             >
               {item}
             </Link>
@@ -51,13 +51,13 @@ export function NavBar() {
         <div className="flex items-center gap-5">
           <Link
             href="/login"
-            className="hidden md:inline-flex font-mono text-[10px] font-700 uppercase tracking-[0.18em] text-rich-black hover:text-gold transition-colors duration-300"
+            className="hidden md:inline-flex font-mono text-[10px] font-700 uppercase tracking-[0.18em] text-rich-black hover:text-warm-gray transition-colors duration-300"
           >
             Login
           </Link>
           <Link
             href="#book-now"
-            className="hidden md:inline-flex items-center justify-center bg-rich-black text-cream font-mono text-[10px] font-700 uppercase tracking-[0.18em] px-6 py-3 hover:bg-gold hover:text-rich-black transition-all duration-400"
+            className="hidden md:inline-flex items-center justify-center bg-rich-black text-cream font-mono text-[10px] font-700 uppercase tracking-[0.18em] px-6 py-3 hover:bg-warm-gray transition-all duration-400"
           >
             Book Now
           </Link>
@@ -91,7 +91,7 @@ export function NavBar() {
           ))}
           <Link
             href="#book-now"
-            className="bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.18em] px-6 py-4 text-center hover:bg-gold hover:text-rich-black transition-all duration-400"
+            className="bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.18em] px-6 py-4 text-center hover:bg-warm-gray transition-all duration-400"
           >
             Book Now
           </Link>

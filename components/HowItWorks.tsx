@@ -56,7 +56,7 @@ export function HowItWorks() {
         viewport={{ once: true }}
         className="mb-24 md:mb-32 flex flex-col md:flex-row md:items-end justify-between gap-8"
       >
-        <h2 className="font-display text-[52px] md:text-[100px] font-800 leading-[0.88] tracking-[-0.04em] uppercase">
+        <h2 className="font-display text-[52px] md:text-[100px] font-800 leading-[0.88] tracking-[-0.03em]">
           Three steps<span className="text-gold">.</span><br />
           That&apos;s it<span className="text-gold">.</span>
         </h2>
@@ -108,7 +108,7 @@ export function HowItWorks() {
               <div className={`relative z-10 transition-transform duration-700 ${isHovered ? '-translate-y-1' : ''}`}>
                 <span className="font-mono text-[10px] font-600 text-gold block mb-5">{step.id}</span>
                 <h3
-                  className={`font-display text-[40px] md:text-[52px] font-800 mb-5 uppercase tracking-[-0.03em] transition-colors duration-700 ${
+                  className={`font-display text-[40px] md:text-[52px] font-800 mb-5 tracking-[-0.03em] transition-colors duration-700 ${
                     isHovered ? 'text-cream' : 'text-rich-black'
                   }`}
                 >
@@ -152,7 +152,7 @@ export function HowItWorks() {
       >
         <Link
           href="#book"
-          className="inline-flex items-center justify-center bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.18em] px-10 py-5 hover:bg-gold hover:text-rich-black transition-all duration-500 group"
+          className="inline-flex items-center justify-center bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.18em] px-10 py-5 hover:bg-warm-gray transition-all duration-500 group"
         >
           <span className="mr-3">Experience It Now</span>
           <span className="group-hover:translate-x-1.5 transition-transform duration-400">&rarr;</span>

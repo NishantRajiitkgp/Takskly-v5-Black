@@ -67,7 +67,7 @@ export function TheProblem() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-20 md:mb-24"
         >
-          <h2 className="font-display text-[44px] md:text-[88px] font-800 leading-[0.88] tracking-[-0.04em] uppercase max-w-[900px]">
+          <h2 className="font-display text-[44px] md:text-[88px] font-800 leading-[0.88] tracking-[-0.03em] max-w-[900px]">
             Finding reliable<br />home help shouldn&apos;t<br />feel like{' '}
             <span className="relative inline-block">
               <span className="text-red-400">gambling</span>
@@ -197,7 +197,7 @@ export function TheProblem() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="font-display text-[28px] md:text-[44px] font-800 tracking-[-0.03em] uppercase text-cream">
+          <p className="font-display text-[28px] md:text-[44px] font-800 tracking-[-0.03em] text-cream">
             There&apos;s a better way<span className="text-gold">.</span>
           </p>
           <p className="font-sans text-[13px] font-500 text-cream/30 mt-3">

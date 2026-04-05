@@ -82,7 +82,7 @@ export function WhyTaskly() {
           viewport={{ once: true }}
           className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8"
         >
-          <h2 className="font-display text-[44px] md:text-[88px] font-800 leading-[0.88] tracking-[-0.04em] uppercase max-w-[700px]">
+          <h2 className="font-display text-[44px] md:text-[88px] font-800 leading-[0.88] tracking-[-0.03em] max-w-[700px]">
             Not another<br />directory<span className="text-gold">.</span>
           </h2>
           <p className="font-sans text-[13px] font-600 text-warm-gray leading-[1.7] max-w-[300px] pb-3">
@@ -131,7 +131,7 @@ export function WhyTaskly() {
                     <usp.icon className="w-5 h-5" />
                   </motion.div>
 
-                  <h3 className={`font-display text-[22px] md:text-[26px] font-800 uppercase tracking-[-0.02em] mb-3 transition-colors duration-500 ${
+                  <h3 className={`font-display text-[22px] md:text-[26px] font-800 tracking-[-0.02em] mb-3 transition-colors duration-500 ${
                     isHovered ? 'text-rich-black' : 'text-rich-black'
                   }`}>
                     {usp.title}

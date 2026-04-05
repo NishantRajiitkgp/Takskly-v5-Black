@@ -6,9 +6,9 @@ import { ArrowUpRight } from 'lucide-react';
 
 export function Footer() {
   const footerLinks = [
-    { title: 'SERVICES', links: ['Cleaning', 'Emergency', 'Maintenance', 'Seasonal'] },
-    { title: 'COMPANY', links: ['About', 'Careers', 'Blog', 'Press', 'Contact'] },
-    { title: 'LEGAL', links: ['Terms', 'Privacy', 'Provider Agreement', 'Insurance'] },
+    { title: 'Services', links: ['Cleaning', 'Emergency', 'Maintenance', 'Seasonal'] },
+    { title: 'Company', links: ['About', 'Careers', 'Blog', 'Press', 'Contact'] },
+    { title: 'Legal', links: ['Terms', 'Privacy', 'Provider Agreement', 'Insurance'] },
   ];
 
   const socials = [
@@ -36,7 +36,7 @@ export function Footer() {
               <span className="font-mono text-[9px] font-700 uppercase tracking-[0.3em] text-gold block mb-5">
                 Ready?
               </span>
-              <h3 className="font-display text-[48px] md:text-[80px] font-800 leading-[0.88] tracking-[-0.04em] uppercase text-cream">
+              <h3 className="font-display text-[48px] md:text-[80px] font-800 leading-[0.88] tracking-[-0.03em] text-cream">
                 Let&apos;s make your<br />home shine<span className="text-gold">.</span>
               </h3>
             </motion.div>
@@ -50,15 +50,15 @@ export function Footer() {
             >
               <Link
                 href="#book"
-                className="relative overflow-hidden inline-flex items-center justify-center bg-gold text-rich-black font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-10 py-5 group"
+                className="relative overflow-hidden inline-flex items-center justify-center bg-cream text-rich-black font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-10 py-5 group"
               >
-                <div className="absolute inset-0 bg-cream translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                <div className="absolute inset-0 bg-cream-dark translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                 <span className="relative z-10 mr-3">Book Now</span>
                 <ArrowUpRight className="relative z-10 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
               </Link>
               <Link
                 href="#provider"
-                className="inline-flex items-center justify-center border border-cream/15 text-cream font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-10 py-5 hover:border-gold hover:text-gold transition-all duration-400"
+                className="inline-flex items-center justify-center border border-cream/15 text-cream font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-10 py-5 hover:border-cream hover:text-cream transition-all duration-400"
               >
                 Become a Pro
               </Link>
@@ -86,7 +86,7 @@ export function Footer() {
                 <Link
                   key={social.name}
                   href={`#${social.name.toLowerCase()}`}
-                  className="group flex items-center gap-2.5 bg-cream/[0.04] border border-cream/[0.06] px-4 py-2.5 hover:bg-gold hover:border-gold transition-all duration-400"
+                  className="group flex items-center gap-2.5 bg-cream/[0.04] border border-cream/[0.06] px-4 py-2.5 hover:bg-cream hover:border-cream hover:text-rich-black transition-all duration-400"
                 >
                   <span className="font-mono text-[9px] font-700 uppercase tracking-[0.15em] text-cream/70 group-hover:text-rich-black transition-colors duration-400">
                     {social.name}
@@ -138,7 +138,7 @@ export function Footer() {
               placeholder="your@email.com"
               className="bg-cream/[0.04] border border-cream/[0.08] border-r-0 px-5 py-3.5 font-mono text-[12px] text-cream placeholder:text-cream/20 outline-none focus:border-gold/30 transition-colors w-full md:w-[280px]"
             />
-            <button className="bg-cream/[0.08] border border-cream/[0.08] px-6 py-3.5 font-mono text-[10px] font-700 uppercase tracking-[0.15em] text-cream/70 hover:bg-gold hover:text-rich-black hover:border-gold transition-all duration-400 flex-shrink-0">
+            <button className="bg-cream/[0.08] border border-cream/[0.08] px-6 py-3.5 font-mono text-[10px] font-700 uppercase tracking-[0.15em] text-cream/70 hover:bg-cream hover:text-rich-black hover:border-cream transition-all duration-400 flex-shrink-0">
               Subscribe
             </button>
           </div>

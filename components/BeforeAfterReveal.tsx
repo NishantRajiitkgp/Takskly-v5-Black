@@ -40,7 +40,7 @@ export function BeforeAfterReveal() {
           <span className="font-mono text-[10px] font-700 uppercase tracking-[0.3em] text-gold block mb-6">
             The Taskly Effect
           </span>
-          <h2 className="font-display text-[48px] md:text-[80px] font-800 leading-[0.88] tracking-[-0.04em] uppercase text-cream">
+          <h2 className="font-display text-[48px] md:text-[80px] font-800 leading-[0.88] tracking-[-0.03em] text-cream">
             See the<br />difference<span className="text-gold">.</span>
           </h2>
           <p className="font-sans text-[14px] font-600 text-cream/50 mt-6 max-w-[400px] mx-auto">
@@ -103,7 +103,7 @@ export function BeforeAfterReveal() {
             className="absolute top-1/2 z-30 pointer-events-none"
             style={{ left: `${sliderPos}%`, transform: 'translate(-50%, -50%)' }}
           >
-            <div className="w-14 h-14 rounded-full bg-gold border-4 border-cream flex items-center justify-center shadow-[0_0_40px_rgba(197,164,126,0.5)] group-hover:scale-110 transition-transform duration-300">
+            <div className="w-14 h-14 rounded-full bg-gold border-4 border-cream flex items-center justify-center shadow-[0_0_30px_rgba(13,13,13,0.3)] group-hover:scale-110 transition-transform duration-300">
               <ChevronLeft className="w-4 h-4 text-rich-black -mr-1" />
               <ChevronRight className="w-4 h-4 text-rich-black -ml-1" />
             </div>
@@ -113,7 +113,7 @@ export function BeforeAfterReveal() {
           <div className="absolute top-6 left-6 z-10 bg-rich-black/70 backdrop-blur-sm px-4 py-2 pointer-events-none">
             <span className="font-mono text-[10px] font-700 uppercase tracking-[0.2em] text-cream">Before</span>
           </div>
-          <div className="absolute top-6 right-6 z-10 bg-gold/90 backdrop-blur-sm px-4 py-2 pointer-events-none">
+          <div className="absolute top-6 right-6 z-10 bg-cream backdrop-blur-sm px-4 py-2 pointer-events-none">
             <span className="font-mono text-[10px] font-700 uppercase tracking-[0.2em] text-rich-black">After</span>
           </div>
 

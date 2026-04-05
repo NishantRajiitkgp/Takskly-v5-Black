@@ -62,7 +62,7 @@ export function BuiltForGTA() {
           viewport={{ once: true }}
           className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8"
         >
-          <h2 className="font-display text-[44px] md:text-[88px] font-800 leading-[0.88] tracking-[-0.04em] uppercase max-w-[700px]">
+          <h2 className="font-display text-[44px] md:text-[88px] font-800 leading-[0.88] tracking-[-0.03em] max-w-[700px]">
             Your neighborhood<span className="text-gold">.</span><br />
             Your people<span className="text-gold">.</span>
           </h2>
@@ -86,7 +86,7 @@ export function BuiltForGTA() {
               <div className="absolute inset-0 bg-gradient-to-br from-gold/[0.08] to-gold/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
               {/* Giant watermark stat */}
-              <div className="absolute -top-2 -right-2 font-display text-[120px] md:text-[140px] font-800 leading-none text-rich-black/[0.03] group-hover:text-gold/[0.08] select-none pointer-events-none transition-colors duration-700">
+              <div className="absolute -top-2 -right-2 font-display text-[120px] md:text-[140px] font-800 leading-none text-rich-black/[0.03] group-hover:text-rich-black/[0.06] select-none pointer-events-none transition-colors duration-700">
                 {item.stat}
               </div>
 
@@ -100,18 +100,18 @@ export function BuiltForGTA() {
                 </motion.div>
 
                 <div className="flex items-baseline gap-1 mb-2">
-                  <span className="font-display text-[44px] md:text-[52px] font-800 tracking-[-0.04em] text-rich-black group-hover:text-gold-dark transition-colors duration-500">
+                  <span className="font-display text-[44px] md:text-[52px] font-800 tracking-[-0.04em] text-rich-black group-hover:text-warm-gray transition-colors duration-500">
                     {item.stat}
                   </span>
                 </div>
 
-                <h3 className="font-display text-[18px] md:text-[20px] font-800 uppercase tracking-[-0.02em] text-rich-black mb-3">
+                <h3 className="font-display text-[18px] md:text-[20px] font-800 tracking-[-0.02em] text-rich-black mb-3">
                   {item.title}
                 </h3>
               </div>
 
               {/* Bottom */}
-              <div className="relative z-10 pt-5 border-t border-border group-hover:border-gold/20 transition-colors duration-500">
+              <div className="relative z-10 pt-5 border-t border-border group-hover:border-rich-black/10 transition-colors duration-500">
                 <p className="font-sans text-[12px] font-500 text-warm-gray group-hover:text-rich-black/60 leading-[1.6] transition-colors duration-500">
                   {item.desc}
                 </p>
@@ -140,7 +140,7 @@ export function BuiltForGTA() {
                   Live Coverage
                 </span>
               </div>
-              <h3 className="font-display text-[28px] md:text-[40px] font-800 tracking-[-0.03em] uppercase text-cream">
+              <h3 className="font-display text-[28px] md:text-[40px] font-800 tracking-[-0.03em] text-cream">
                 16 Neighborhoods<span className="text-gold">.</span> Growing<span className="text-gold">.</span>
               </h3>
             </div>
@@ -166,7 +166,7 @@ export function BuiltForGTA() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="relative bg-gold/[0.08] border border-gold/20 px-5 py-3 md:px-6 md:py-3.5 group cursor-default hover:bg-gold hover:border-gold transition-all duration-400 overflow-hidden"
+                className="relative bg-gold/[0.08] border border-gold/20 px-5 py-3 md:px-6 md:py-3.5 group cursor-default hover:bg-cream hover:border-cream hover:text-rich-black transition-all duration-400 overflow-hidden"
               >
                 {/* Shine sweep on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cream/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />

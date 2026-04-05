@@ -33,7 +33,7 @@ export function Cta() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display text-[52px] md:text-[110px] lg:text-[140px] font-800 leading-[0.85] tracking-[-0.04em] uppercase">
+          <h2 className="font-display text-[52px] md:text-[110px] lg:text-[140px] font-800 leading-[0.85] tracking-[-0.03em]">
             Your home<br />
             deserves<br />
             better<span className="text-gold">.</span>
@@ -61,14 +61,14 @@ export function Cta() {
         >
           <Link
             href="#book"
-            className="inline-flex items-center justify-center bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-9 py-5 hover:bg-gold hover:text-rich-black transition-all duration-500 group"
+            className="inline-flex items-center justify-center bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-9 py-5 hover:bg-warm-gray transition-all duration-500 group"
           >
             <span className="mr-3">Book Your First Clean</span>
             <span className="group-hover:translate-x-1.5 transition-transform duration-400">&rarr;</span>
           </Link>
           <Link
             href="#provider"
-            className="inline-flex items-center justify-center bg-transparent border border-border text-rich-black font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-9 py-5 hover:border-gold hover:text-gold transition-all duration-400"
+            className="inline-flex items-center justify-center bg-transparent border border-border text-rich-black font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-9 py-5 hover:border-rich-black hover:text-rich-black transition-all duration-400"
           >
             Become a Provider
           </Link>

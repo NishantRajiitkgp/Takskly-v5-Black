@@ -126,7 +126,7 @@ export function Trust() {
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h2 className="font-display text-[48px] md:text-[96px] font-800 leading-[0.88] tracking-[-0.04em] uppercase text-cream">
+          <h2 className="font-display text-[48px] md:text-[96px] font-800 leading-[0.88] tracking-[-0.03em] text-cream">
             Someone is<br />entering your<br />home<span className="text-gold">.</span>
           </h2>
           <p className="font-sans text-[14px] font-500 text-cream/40 mt-6 italic">
@@ -149,23 +149,23 @@ export function Trust() {
               <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gold scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
 
               {/* Layer number watermark */}
-              <div className="absolute right-6 top-1/2 -translate-y-1/2 font-display text-[80px] md:text-[100px] font-800 leading-none text-cream/[0.02] group-hover:text-gold/[0.05] select-none pointer-events-none transition-colors duration-700">
+              <div className="absolute right-6 top-1/2 -translate-y-1/2 font-display text-[80px] md:text-[100px] font-800 leading-none text-cream/[0.02] group-hover:text-cream/[0.05] select-none pointer-events-none transition-colors duration-700">
                 {(i + 1).toString().padStart(2, '0')}
               </div>
 
               {/* Icon */}
-              <div className="relative z-10 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-cream/[0.04] group-hover:bg-gold/20 flex-shrink-0 transition-all duration-500">
-                <item.icon className="w-5 h-5 md:w-6 md:h-6 text-cream/30 group-hover:text-gold transition-colors duration-500" />
+              <div className="relative z-10 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-cream/[0.04] group-hover:bg-cream/10 flex-shrink-0 transition-all duration-500">
+                <item.icon className="w-5 h-5 md:w-6 md:h-6 text-cream/30 group-hover:text-cream transition-colors duration-500" />
               </div>
 
               {/* Content */}
               <div className="relative z-10 flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-1">
-                  <span className="font-mono text-[9px] font-700 text-gold/50 group-hover:text-gold transition-colors duration-500">
+                  <span className="font-mono text-[9px] font-700 text-gold/50 group-hover:text-cream transition-colors duration-500">
                     Layer {(i + 1).toString().padStart(2, '0')}
                   </span>
                 </div>
-                <h4 className="font-display text-[16px] md:text-[20px] font-800 uppercase tracking-[-0.02em] text-cream/80 group-hover:text-cream transition-colors duration-500 truncate">
+                <h4 className="font-display text-[16px] md:text-[20px] font-800 tracking-[-0.02em] text-cream/80 group-hover:text-cream transition-colors duration-500 truncate">
                   {item.title}
                 </h4>
                 <p className="font-sans text-[11px] md:text-[12px] font-500 text-cream/25 group-hover:text-cream/50 transition-colors duration-500 mt-1">
@@ -219,7 +219,7 @@ export function Trust() {
               <span className="font-mono text-[10px] font-700 uppercase tracking-[0.3em] text-gold block mb-4">
                 What They Say
               </span>
-              <h3 className="font-display text-[36px] md:text-[56px] font-800 tracking-[-0.03em] uppercase text-cream">
+              <h3 className="font-display text-[36px] md:text-[56px] font-800 tracking-[-0.03em] text-cream">
                 Real People<span className="text-gold">.</span><br className="md:hidden" /> Real Reviews<span className="text-gold">.</span>
               </h3>
             </div>
@@ -286,7 +286,7 @@ export function Trust() {
               className="relative bg-rich-black p-8 md:p-9 flex flex-col justify-between min-h-[320px] group overflow-hidden hover:bg-cream/[0.02] transition-colors duration-700"
             >
               {/* Subtle quote mark */}
-              <div className="absolute top-2 right-4 font-display text-[100px] font-800 leading-none text-cream/[0.03] select-none pointer-events-none group-hover:text-gold/[0.05] transition-colors duration-700">
+              <div className="absolute top-2 right-4 font-display text-[100px] font-800 leading-none text-cream/[0.03] select-none pointer-events-none group-hover:text-cream/[0.05] transition-colors duration-700">
                 &ldquo;
               </div>
 
@@ -298,7 +298,7 @@ export function Trust() {
                       <span key={s} className="text-gold text-[12px]">&#9733;</span>
                     ))}
                   </div>
-                  <span className="font-mono text-[7px] font-700 uppercase tracking-[0.2em] text-gold/50 border border-gold/15 px-2 py-1 group-hover:border-gold/30 group-hover:text-gold/70 transition-all duration-500">
+                  <span className="font-mono text-[7px] font-700 uppercase tracking-[0.2em] text-gold/50 border border-gold/15 px-2 py-1 group-hover:border-cream/30 group-hover:text-cream/70 transition-all duration-500">
                     {test.service}
                   </span>
                 </div>
@@ -310,7 +310,7 @@ export function Trust() {
               </div>
 
               {/* Author */}
-              <div className="relative z-10 flex items-center gap-3.5 mt-8 pt-6 border-t border-cream/[0.05] group-hover:border-gold/[0.1] transition-colors duration-500">
+              <div className="relative z-10 flex items-center gap-3.5 mt-8 pt-6 border-t border-cream/[0.05] group-hover:border-cream/[0.1] transition-colors duration-500">
                 <div className={`w-10 h-10 ${test.color} flex items-center justify-center flex-shrink-0`}>
                   <span className="font-mono text-[10px] font-700 text-cream/90 tracking-wider">
                     {test.initials}
@@ -321,7 +321,7 @@ export function Trust() {
                   <p className="font-mono text-[8px] font-600 uppercase tracking-[0.15em] text-cream/30 mt-0.5">{test.location}</p>
                 </div>
                 <div className="text-right flex-shrink-0">
-                  <p className="font-display text-[18px] font-800 text-cream/80 leading-none group-hover:text-gold transition-colors duration-500">{test.bookings}</p>
+                  <p className="font-display text-[18px] font-800 text-cream/80 leading-none group-hover:text-cream transition-colors duration-500">{test.bookings}</p>
                   <p className="font-mono text-[7px] font-600 uppercase tracking-[0.15em] text-cream/25 mt-1">Bookings</p>
                 </div>
               </div>

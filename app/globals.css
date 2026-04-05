@@ -3,22 +3,22 @@
 
 @theme {
   /* Typography */
-  --font-display: var(--font-syne);
-  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-outfit);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 
-  /* Refined Luxury Palette */
-  --color-cream: #FAF8F4;
-  --color-cream-dark: #F0ECE4;
+  /* Clean Modern Palette */
+  --color-cream: #FAFAFA;
+  --color-cream-dark: #F3F3F3;
   --color-rich-black: #0D0D0D;
-  --color-gold: #C5A47E;
-  --color-gold-dark: #A67C52;
-  --color-gold-light: #E8D5B7;
-  --color-gold-muted: rgba(197, 164, 126, 0.08);
-  --color-warm-gray: #5A524A;
-  --color-warm-gray-light: #78706A;
-  --color-border: rgba(13, 13, 13, 0.06);
-  --color-border-gold: rgba(197, 164, 126, 0.2);
+  --color-gold: #0D0D0D;
+  --color-gold-dark: #000000;
+  --color-gold-light: #EFEFEF;
+  --color-gold-muted: rgba(13, 13, 13, 0.06);
+  --color-warm-gray: #6B6B6B;
+  --color-warm-gray-light: #8A8A8A;
+  --color-border: rgba(13, 13, 13, 0.08);
+  --color-border-gold: rgba(13, 13, 13, 0.12);
 
   /* Animations */
   --animate-marquee: marquee 40s linear infinite;
@@ -82,17 +82,17 @@ html {
   animation: grain 0.5s steps(1) infinite;
 }
 
-/* Gold gradient mesh — atmospheric background glow */
+/* Subtle gradient mesh — atmospheric background glow */
 .gold-mesh {
   background-image:
-    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(197, 164, 126, 0.06), transparent),
-    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(197, 164, 126, 0.04), transparent),
-    radial-gradient(ellipse 50% 80% at 50% 80%, rgba(197, 164, 126, 0.03), transparent);
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(13, 13, 13, 0.02), transparent),
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(13, 13, 13, 0.015), transparent),
+    radial-gradient(ellipse 50% 80% at 50% 80%, rgba(13, 13, 13, 0.01), transparent);
 }
 
 /* Selection color */
 ::selection {
-  background: rgba(197, 164, 126, 0.25);
+  background: rgba(13, 13, 13, 0.15);
   color: #0D0D0D;
 }
 

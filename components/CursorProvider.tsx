@@ -81,7 +81,7 @@ export function CursorProvider() {
         }}
         transition={{ duration: 0.15 }}
       >
-        <div className="w-2 h-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold" />
+        <div className="w-2 h-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cream" />
       </motion.div>
 
       {/* Outer ring */}
@@ -96,7 +96,7 @@ export function CursorProvider() {
       >
         <div
           className={`w-10 h-10 -translate-x-1/2 -translate-y-1/2 rounded-full border transition-colors duration-300 ${
-            isHovering ? 'border-gold bg-gold/10' : 'border-rich-black/30'
+            isHovering ? 'border-cream bg-cream/10' : 'border-rich-black/30'
           }`}
         />
       </motion.div>
