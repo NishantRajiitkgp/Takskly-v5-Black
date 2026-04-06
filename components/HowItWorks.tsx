@@ -517,7 +517,7 @@ export function HowItWorks() {
 
               {/* Background image — subtle */}
               <div className="absolute inset-0 rounded-3xl overflow-hidden opacity-[0.08]">
-                <Image src={steps[activeStep].image} alt={steps[activeStep].title} fill className="object-cover" />
+                <Image src={steps[activeStep].image} alt={steps[activeStep].title} fill quality={90} className="object-cover" />
               </div>
 
               {/* Phone mockup — scaled container adjusts height */}

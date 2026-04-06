@@ -81,6 +81,7 @@ export function BeforeAfterReveal() {
             src="/assets/after.jpg"
             alt="After — Pristine clean"
             fill
+            quality={95}
             className="object-cover pointer-events-none"
             priority
           />
@@ -94,6 +95,7 @@ export function BeforeAfterReveal() {
               src="/assets/before.png"
               alt="Before — Needs cleaning"
               fill
+              quality={95}
               className="object-cover pointer-events-none"
               style={{ minWidth: sliderRef.current ? `${sliderRef.current.offsetWidth}px` : '100vw', maxWidth: 'none' }}
               priority

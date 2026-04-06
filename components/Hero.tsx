@@ -66,7 +66,7 @@ export function Hero() {
               preload="auto"
               className="w-full h-full object-cover"
             >
-              <source src="/Hero.mp4" type="video/mp4" />
+              <source src="/hero.mp4" type="video/mp4" />
             </video>
           </motion.div>
 
