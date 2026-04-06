@@ -133,3 +133,40 @@ html {
     cursor: pointer;
   }
 }
+
+/* Reduced motion — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .noise-overlay::after {
+    animation: none !important;
+  }
+}
+
+/* Global focus-visible ring for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[role="slider"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #0D0D0D;
+  outline-offset: 2px;
+}
+
+/* Inverted focus ring for dark backgrounds */
+.bg-rich-black a:focus-visible,
+.bg-rich-black button:focus-visible,
+.bg-rich-black input:focus-visible,
+.bg-rich-black [role="button"]:focus-visible,
+footer a:focus-visible,
+footer button:focus-visible,
+footer input:focus-visible {
+  outline-color: #FAFAFA;
+}

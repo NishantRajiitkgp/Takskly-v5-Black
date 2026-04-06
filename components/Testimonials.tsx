@@ -85,9 +85,9 @@ export function Testimonials() {
 
           <div className="relative z-10 flex flex-col md:flex-row gap-10 md:gap-16">
             <div className="flex-1">
-              <div className="flex items-center gap-1.5 mb-6">
+              <div className="flex items-center gap-1.5 mb-6" role="img" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, s) => (
-                  <span key={s} className="text-amber-400 text-[18px]">&#9733;</span>
+                  <span key={s} className="text-amber-400 text-[18px]" aria-hidden="true">&#9733;</span>
                 ))}
                 <span className="font-mono text-[10px] font-700 text-cream/65 ml-2">5.0</span>
               </div>
@@ -133,9 +133,9 @@ export function Testimonials() {
 
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1" role="img" aria-label={`${test.rating} out of 5 stars`}>
                     {Array.from({ length: test.rating }).map((_, s) => (
-                      <span key={s} className="text-amber-400 text-[12px]">&#9733;</span>
+                      <span key={s} className="text-amber-400 text-[12px]" aria-hidden="true">&#9733;</span>
                     ))}
                   </div>
                   <span className="font-mono text-[7px] font-700 uppercase tracking-[0.2em] text-cream/50 border border-cream/20 px-2 py-1 group-hover:border-cream/30 group-hover:text-cream/70 transition-all duration-500">

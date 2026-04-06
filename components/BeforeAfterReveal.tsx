@@ -22,9 +22,13 @@ export function BeforeAfterReveal() {
   const onMouseMove = (e: React.MouseEvent) => { if (isDragging.current) handleSliderMove(e.clientX); };
   const onTouchMove = (e: React.TouchEvent) => { handleSliderMove(e.touches[0].clientX); };
   const onClick = (e: React.MouseEvent) => { handleSliderMove(e.clientX); };
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); setSliderPos(p => Math.max(0, p - 2)); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); setSliderPos(p => Math.min(100, p + 2)); }
+  };
 
   return (
-    <section className="relative bg-rich-black text-cream py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-rich-black text-cream py-28 md:py-40 overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gold/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
@@ -55,6 +59,12 @@ export function BeforeAfterReveal() {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           ref={sliderRef}
+          role="slider"
+          aria-label="Before and after comparison slider"
+          aria-valuenow={Math.round(sliderPos)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          tabIndex={0}
           className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] overflow-hidden cursor-col-resize select-none border border-cream/10 group touch-none"
           onMouseDown={onMouseDown}
           onMouseUp={onMouseUp}
@@ -64,6 +74,7 @@ export function BeforeAfterReveal() {
           onTouchEnd={onMouseUp}
           onTouchMove={onTouchMove}
           onClick={onClick}
+          onKeyDown={onKeyDown}
         >
           {/* AFTER image (full background — the clean result) */}
           <Image

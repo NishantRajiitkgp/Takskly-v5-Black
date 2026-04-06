@@ -91,7 +91,7 @@ export function Footer() {
                   <span className="font-mono text-[9px] font-700 uppercase tracking-[0.15em] text-cream/70 group-hover:text-rich-black transition-colors duration-400">
                     {social.name}
                   </span>
-                  <ArrowUpRight className="w-3 h-3 text-cream/20 group-hover:text-rich-black transition-colors duration-400" />
+                  <ArrowUpRight className="w-3 h-3 text-cream/20 group-hover:text-rich-black transition-colors duration-400" aria-hidden="true" />
                 </Link>
               ))}
             </div>
@@ -112,7 +112,7 @@ export function Footer() {
                         className="group inline-flex items-center gap-2 font-sans text-[13px] font-500 text-cream/70 hover:text-cream transition-colors duration-300"
                       >
                         {link}
-                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-50 group-hover:translate-x-0 transition-all duration-300" />
+                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-50 group-hover:translate-x-0 transition-all duration-300" aria-hidden="true" />
                       </Link>
                     </li>
                   ))}
@@ -152,7 +152,7 @@ export function Footer() {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" aria-hidden="true" />
             <span className="font-mono text-[9px] font-600 uppercase tracking-[0.12em] text-cream/50">
               All Systems Operational
             </span>

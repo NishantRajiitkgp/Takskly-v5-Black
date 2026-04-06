@@ -94,7 +94,7 @@ export function TheProblem() {
           className="mb-20"
         >
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-400 animate-pulse" />
+            <div className="w-2.5 h-2.5 rounded-full bg-red-400 animate-pulse" aria-hidden="true" />
             <span className="font-mono text-[13px] font-700 uppercase tracking-[0.3em] text-red-400">
               Real stories from GTA residents
             </span>
@@ -168,7 +168,7 @@ export function TheProblem() {
               {/* Top */}
               <div className="relative z-10">
                 <div className="w-10 h-10 flex items-center justify-center bg-cream/[0.04] group-hover:bg-red-500/20 mb-6 transition-colors duration-500">
-                  <point.icon className="w-4 h-4 text-cream/30 group-hover:text-red-400 transition-colors duration-500" />
+                  <point.icon className="w-4 h-4 text-cream/50 group-hover:text-red-400 transition-colors duration-500" />
                 </div>
                 <div className="flex items-baseline gap-1">
                   <span className="font-display text-[36px] sm:text-[48px] md:text-[60px] font-800 tracking-[-0.04em] text-cream group-hover:text-red-400 transition-colors duration-500">

@@ -95,7 +95,7 @@ export function WhyTaskly() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <span className="font-mono text-[10px] font-700 uppercase tracking-[0.3em] text-rich-black/60">
+          <span className="font-mono text-[10px] font-700 uppercase tracking-[0.3em] text-rich-black/70">
             Why Taskly
           </span>
         </motion.div>

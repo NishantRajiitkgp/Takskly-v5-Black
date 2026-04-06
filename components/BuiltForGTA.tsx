@@ -58,7 +58,7 @@ export function BuiltForGTA() {
           <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" aria-hidden="true" />
                 <span className="font-mono text-[9px] font-700 uppercase tracking-[0.3em] text-green-400/80">
                   Live Coverage
                 </span>

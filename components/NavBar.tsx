@@ -76,6 +76,8 @@ export function NavBar({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
           {/* Mobile Menu Toggle — 44px minimum for iOS */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
             className={`md:hidden w-11 h-11 flex items-center justify-center rounded-sm active:bg-rich-black/5 ${isDark ? 'text-cream active:bg-cream/10' : 'text-rich-black'}`}
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

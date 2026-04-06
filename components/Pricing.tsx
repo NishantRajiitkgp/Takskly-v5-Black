@@ -66,10 +66,12 @@ export function Pricing() {
       {/* ===== MOBILE CARD LAYOUT (< md) ===== */}
       <div className="md:hidden">
         {/* Plan Tabs */}
-        <div className="flex gap-[1px] bg-rich-black/[0.06] mb-6">
+        <div className="flex gap-[1px] bg-rich-black/[0.06] mb-6" role="tablist" aria-label="Pricing plans">
           {plans.map((plan, i) => (
             <button
               key={i}
+              role="tab"
+              aria-selected={activeMobilePlan === i}
               onClick={() => setActiveMobilePlan(i)}
               className={`flex-1 py-3.5 text-center font-mono text-[10px] font-700 uppercase tracking-[0.12em] transition-all duration-300 min-h-[44px] ${
                 activeMobilePlan === i
@@ -90,6 +92,8 @@ export function Pricing() {
         {/* Active Plan Card */}
         <motion.div
           key={activeMobilePlan}
+          role="tabpanel"
+          aria-label={plans[activeMobilePlan].name}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
@@ -118,7 +122,7 @@ export function Pricing() {
               const included = feature.values[activeMobilePlan];
               return (
                 <div key={i} className="flex items-center gap-3">
-                  <div className={`w-5 h-5 flex items-center justify-center flex-shrink-0 ${included ? 'text-gold-dark' : 'text-rich-black/15'}`}>
+                  <div className={`w-5 h-5 flex items-center justify-center flex-shrink-0 ${included ? 'text-rich-black' : 'text-rich-black/15'}`} aria-hidden="true">
                     {included ? <Check className="w-4 h-4" /> : <Minus className="w-4 h-4" />}
                   </div>
                   <span className={`font-sans text-[14px] ${included ? 'font-600 text-rich-black' : 'font-500 text-rich-black/40'}`}>

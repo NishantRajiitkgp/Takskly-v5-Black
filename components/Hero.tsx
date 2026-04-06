@@ -90,7 +90,7 @@ export function Hero() {
               transition={{ duration: 1, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3"
             >
-              <div className="w-2.5 h-2.5 rounded-full bg-green-700 animate-pulse" />
+              <div className="w-2.5 h-2.5 rounded-full bg-green-700 animate-pulse" aria-hidden="true" />
               <span className="font-mono text-[11px] font-900 uppercase tracking-[0.3em] text-green-800">
                 Now in Toronto & GTA
               </span>
@@ -197,7 +197,7 @@ export function Hero() {
               '$10K Protection',
             ].map((badge) => (
               <span key={badge} className="flex items-center gap-2">
-                <span className="text-green-700 text-[13px] font-800">&#10003;</span>
+                <span className="text-green-700 text-[13px] font-800" aria-hidden="true">&#10003;</span>
                 <span className="font-mono text-[10px] font-800 uppercase tracking-[0.15em] text-rich-black">
                   {badge}
                 </span>
