@@ -149,7 +149,8 @@ export function Services() {
                   <Image
                     src={services.find((s) => s.id === hoveredService)?.image || ''}
                     fill
-                    quality={90}
+                    sizes="40vw"
+                    quality={75}
                     className="object-cover"
                     alt={`${services.find((s) => s.id === hoveredService)?.name || 'Service'} preview`}
                   />

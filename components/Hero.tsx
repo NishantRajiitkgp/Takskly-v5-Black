@@ -63,7 +63,7 @@ export function Hero() {
               loop
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               className="w-full h-full object-cover"
             >
               <source src="/hero.mp4" type="video/mp4" />

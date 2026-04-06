@@ -1,22 +1,23 @@
 'use client';
 
-import { useRef, useCallback, useEffect, useState } from 'react';
+import { useRef, useCallback } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export function BeforeAfterReveal() {
-  const [containerWidth, setContainerWidth] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const beforeClipRef = useRef<HTMLDivElement>(null);
+  const beforeRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<HTMLDivElement>(null);
-  const posRef = useRef(55); // track current position without re-renders
+  const posRef = useRef(55);
 
+  // Direct DOM updates — no React re-renders, 60fps smooth
   const updateDOM = useCallback((pos: number) => {
     posRef.current = pos;
     const pct = `${pos}%`;
-    if (beforeClipRef.current) beforeClipRef.current.style.width = pct;
+    // clip-path: the before image is full-size, we just clip its right edge
+    if (beforeRef.current) beforeRef.current.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
     if (lineRef.current) lineRef.current.style.left = pct;
     if (handleRef.current) handleRef.current.style.left = pct;
   }, []);
@@ -28,17 +29,6 @@ export function BeforeAfterReveal() {
     return (x / rect.width) * 100;
   }, []);
 
-  // Track container width for the before image sizing
-  useEffect(() => {
-    if (!sliderRef.current) return;
-    const ro = new ResizeObserver(([entry]) => {
-      setContainerWidth(entry.contentRect.width);
-    });
-    ro.observe(sliderRef.current);
-    return () => ro.disconnect();
-  }, []);
-
-  // Pointer down on the container — attach window listeners for move/up
   const onPointerDown = useCallback((e: React.PointerEvent) => {
     e.preventDefault();
     const pos = getPos(e.clientX);
@@ -110,23 +100,26 @@ export function BeforeAfterReveal() {
             src="/assets/after.jpg"
             alt="After — Pristine clean"
             fill
-            quality={95}
+            sizes="(max-width: 768px) 100vw, (max-width: 1600px) 90vw, 1600px"
+            quality={80}
             className="object-cover pointer-events-none"
             priority
           />
 
-          {/* BEFORE image (clipped to slider position) */}
+          {/* BEFORE image (full size, clipped with clip-path from the right) */}
           <div
-            ref={beforeClipRef}
-            className="absolute inset-0 overflow-hidden"
-            style={{ width: '55%' }}
+            ref={beforeRef}
+            className="absolute inset-0 z-10"
+            style={{ clipPath: 'inset(0 45% 0 0)' }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/before.png"
               alt="Before — Needs cleaning"
-              className="absolute inset-0 h-full object-cover pointer-events-none"
-              style={{ width: containerWidth > 0 ? `${containerWidth}px` : '100vw', maxWidth: 'none' }}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1600px) 90vw, 1600px"
+              quality={80}
+              className="object-cover pointer-events-none"
+              priority
             />
           </div>
 
