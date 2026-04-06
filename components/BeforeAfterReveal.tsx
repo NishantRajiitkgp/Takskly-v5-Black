@@ -1,31 +1,67 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useRef, useCallback, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export function BeforeAfterReveal() {
-  const [sliderPos, setSliderPos] = useState(55);
-  const isDragging = useRef(false);
+  const [containerWidth, setContainerWidth] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const beforeClipRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef(55); // track current position without re-renders
 
-  const handleSliderMove = useCallback((clientX: number) => {
-    if (!sliderRef.current) return;
-    const rect = sliderRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    setSliderPos((x / rect.width) * 100);
+  const updateDOM = useCallback((pos: number) => {
+    posRef.current = pos;
+    const pct = `${pos}%`;
+    if (beforeClipRef.current) beforeClipRef.current.style.width = pct;
+    if (lineRef.current) lineRef.current.style.left = pct;
+    if (handleRef.current) handleRef.current.style.left = pct;
   }, []);
 
-  const onMouseDown = () => { isDragging.current = true; };
-  const onMouseUp = () => { isDragging.current = false; };
-  const onMouseMove = (e: React.MouseEvent) => { if (isDragging.current) handleSliderMove(e.clientX); };
-  const onTouchMove = (e: React.TouchEvent) => { handleSliderMove(e.touches[0].clientX); };
-  const onClick = (e: React.MouseEvent) => { handleSliderMove(e.clientX); };
-  const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowLeft') { e.preventDefault(); setSliderPos(p => Math.max(0, p - 2)); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); setSliderPos(p => Math.min(100, p + 2)); }
-  };
+  const getPos = useCallback((clientX: number) => {
+    if (!sliderRef.current) return null;
+    const rect = sliderRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    return (x / rect.width) * 100;
+  }, []);
+
+  // Track container width for the before image sizing
+  useEffect(() => {
+    if (!sliderRef.current) return;
+    const ro = new ResizeObserver(([entry]) => {
+      setContainerWidth(entry.contentRect.width);
+    });
+    ro.observe(sliderRef.current);
+    return () => ro.disconnect();
+  }, []);
+
+  // Pointer down on the container — attach window listeners for move/up
+  const onPointerDown = useCallback((e: React.PointerEvent) => {
+    e.preventDefault();
+    const pos = getPos(e.clientX);
+    if (pos !== null) updateDOM(pos);
+
+    const onMove = (ev: PointerEvent) => {
+      const p = getPos(ev.clientX);
+      if (p !== null) updateDOM(p);
+    };
+
+    const onUp = () => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+    };
+
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }, [getPos, updateDOM]);
+
+  const onKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); updateDOM(Math.max(0, posRef.current - 2)); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); updateDOM(Math.min(100, posRef.current + 2)); }
+  }, [updateDOM]);
 
   return (
     <section className="relative bg-rich-black text-cream py-28 md:py-40 overflow-hidden">
@@ -61,19 +97,12 @@ export function BeforeAfterReveal() {
           ref={sliderRef}
           role="slider"
           aria-label="Before and after comparison slider"
-          aria-valuenow={Math.round(sliderPos)}
+          aria-valuenow={55}
           aria-valuemin={0}
           aria-valuemax={100}
           tabIndex={0}
           className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] overflow-hidden cursor-col-resize select-none border border-cream/10 group touch-none"
-          onMouseDown={onMouseDown}
-          onMouseUp={onMouseUp}
-          onMouseLeave={onMouseUp}
-          onMouseMove={onMouseMove}
-          onTouchStart={onMouseDown}
-          onTouchEnd={onMouseUp}
-          onTouchMove={onTouchMove}
-          onClick={onClick}
+          onPointerDown={onPointerDown}
           onKeyDown={onKeyDown}
         >
           {/* AFTER image (full background — the clean result) */}
@@ -88,34 +117,34 @@ export function BeforeAfterReveal() {
 
           {/* BEFORE image (clipped to slider position) */}
           <div
+            ref={beforeClipRef}
             className="absolute inset-0 overflow-hidden"
-            style={{ width: `${sliderPos}%` }}
+            style={{ width: '55%' }}
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/assets/before.png"
               alt="Before — Needs cleaning"
-              fill
-              quality={95}
-              className="object-cover pointer-events-none"
-              style={{ minWidth: sliderRef.current ? `${sliderRef.current.offsetWidth}px` : '100vw', maxWidth: 'none' }}
-              priority
+              className="absolute inset-0 h-full object-cover pointer-events-none"
+              style={{ width: containerWidth > 0 ? `${containerWidth}px` : '100vw', maxWidth: 'none' }}
             />
           </div>
 
           {/* Slider Line */}
           <div
+            ref={lineRef}
             className="absolute top-0 bottom-0 w-[2px] bg-white/70 z-20 pointer-events-none"
-            style={{ left: `${sliderPos}%`, transform: 'translateX(-50%)' }}
+            style={{ left: '55%', transform: 'translateX(-50%)' }}
           >
             <div className="absolute inset-0 w-[6px] -translate-x-[2px] bg-white/10 blur-sm" />
           </div>
 
           {/* Slider Handle */}
           <div
+            ref={handleRef}
             className="absolute top-1/2 z-30 pointer-events-none"
-            style={{ left: `${sliderPos}%`, transform: 'translate(-50%, -50%)' }}
+            style={{ left: '55%', transform: 'translate(-50%, -50%)' }}
           >
-            {/* Outer glow ring */}
             <div className="absolute inset-0 w-14 h-14 rounded-full bg-white/20 blur-md" />
             <div className="relative w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl border border-white/60 flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.25),0_0_40px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform duration-300">
               <ChevronLeft className="w-3.5 h-3.5 text-rich-black/70 -mr-0.5" strokeWidth={2.5} />
@@ -133,17 +162,13 @@ export function BeforeAfterReveal() {
           </div>
 
           {/* Hint */}
-          <motion.div
-            initial={{ opacity: 1 }}
-            animate={{ opacity: isDragging.current ? 0 : 0.7 }}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 bg-rich-black/60 backdrop-blur-sm px-5 py-2.5 pointer-events-none"
-          >
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 bg-rich-black/60 backdrop-blur-sm px-5 py-2.5 pointer-events-none opacity-70">
             <span className="font-mono text-[9px] font-600 uppercase tracking-[0.25em] text-cream flex items-center gap-2">
               <ChevronLeft className="w-3 h-3" />
               Drag to compare
               <ChevronRight className="w-3 h-3" />
             </span>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

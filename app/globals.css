@@ -24,7 +24,6 @@
   --animate-marquee: marquee 40s linear infinite;
   --animate-spin-slow: spin 12s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
-  --animate-grain: grain 0.5s steps(1) infinite;
 
   @keyframes marquee {
     0% { transform: translateX(0%); }
@@ -34,20 +33,6 @@
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-12px); }
-  }
-
-  @keyframes grain {
-    0% { transform: translate(0, 0); }
-    10% { transform: translate(-5%, -10%); }
-    20% { transform: translate(-15%, 5%); }
-    30% { transform: translate(7%, -25%); }
-    40% { transform: translate(-5%, 25%); }
-    50% { transform: translate(-15%, 10%); }
-    60% { transform: translate(15%, 0%); }
-    70% { transform: translate(0%, 15%); }
-    80% { transform: translate(3%, 35%); }
-    90% { transform: translate(-10%, 10%); }
-    100% { transform: translate(0, 0); }
   }
 
   --animate-noise-reveal: noiseReveal 0.8s steps(6) forwards;
@@ -89,18 +74,17 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Noise Texture Overlay — adds film grain atmosphere */
+/* Noise Texture Overlay — static film grain atmosphere (no animation to prevent flickering) */
 .noise-overlay::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.025;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
-  animation: grain 0.5s steps(1) infinite;
 }
 
 /* Subtle gradient mesh — atmospheric background glow */
@@ -141,9 +125,6 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  .noise-overlay::after {
-    animation: none !important;
   }
 }
 
