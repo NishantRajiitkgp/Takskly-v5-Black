@@ -22,7 +22,7 @@ export function NavBar({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
     <motion.nav
       initial={{ y: '-100%' }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: isDark ? 0.2 : 1.8 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: isDark ? 0.2 : 0.8 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
           ? isDark
@@ -103,9 +103,16 @@ export function NavBar({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
             </Link>
           ))}
           <Link
+            href="/login"
+            onClick={() => setMobileOpen(false)}
+            className="font-mono text-[11px] font-700 uppercase tracking-[0.18em] text-rich-black px-6 py-4 text-center border border-rich-black/15 hover:border-rich-black/30 active:bg-rich-black/5 transition-all duration-400 mt-3 min-h-[48px] flex items-center justify-center"
+          >
+            Login
+          </Link>
+          <Link
             href="#book-now"
             onClick={() => setMobileOpen(false)}
-            className="bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.18em] px-6 py-4 text-center hover:bg-warm-gray active:bg-warm-gray/80 transition-all duration-400 mt-3 min-h-[48px] flex items-center justify-center"
+            className="bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.18em] px-6 py-4 text-center hover:bg-warm-gray active:bg-warm-gray/80 transition-all duration-400 min-h-[48px] flex items-center justify-center"
           >
             Book Now
           </Link>

@@ -19,33 +19,28 @@ export function Hero() {
         videoRef.current.currentTime = 0;
         videoRef.current.play();
       }
-    }, 2400); // splash: 0.6s delay + 1.8s animation
+    }, 1100); // splash: 0.5s delay + 0.6s wipe
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
       {/* Opening Reveal */}
+      {/* Opening Reveal — fast with branding */}
       <motion.div
         initial={{ scaleY: 1 }}
         animate={{ scaleY: 0 }}
-        transition={{ duration: 1.8, ease: [0.76, 0, 0.24, 1], delay: 0.6 }}
-        className="fixed inset-0 z-[100] bg-rich-black origin-top flex items-center justify-center"
+        transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.5 }}
+        className="fixed inset-0 z-[100] bg-rich-black origin-top flex items-center justify-center pointer-events-none"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-col items-center gap-3"
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.05 }}
+          className="font-display text-[28px] font-800 tracking-tight text-cream"
         >
-          <span className="font-display text-[28px] font-800 tracking-tight text-cream">
-            taskly<span className="text-gold">.</span>
-          </span>
-          <div className="w-12 h-[1px] bg-gold/40" />
-          <span className="font-mono text-[9px] font-bold uppercase tracking-[0.5em] text-gold/60">
-            Reimagining Home
-          </span>
-        </motion.div>
+          taskly<span className="text-gold">.</span>
+        </motion.span>
       </motion.div>
 
       <section ref={heroRef} className="relative min-h-screen w-full bg-cream overflow-hidden flex flex-col">
@@ -54,7 +49,7 @@ export function Hero() {
           <motion.div
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 2.5, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
             style={{ y: videoY }}
             className="absolute inset-0"
           >
@@ -87,7 +82,7 @@ export function Hero() {
             <motion.div
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
-              transition={{ duration: 1, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3"
             >
               <div className="w-2.5 h-2.5 rounded-full bg-green-700 animate-pulse" aria-hidden="true" />
@@ -103,7 +98,7 @@ export function Hero() {
               <motion.div
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
-                transition={{ duration: 1.3, delay: 2.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
                 className="text-[14vw] md:text-[9vw] lg:text-[120px] text-rich-black"
               >
                 Your Home
@@ -113,7 +108,7 @@ export function Hero() {
               <motion.div
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
-                transition={{ duration: 1.3, delay: 2.4, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
                 className="text-[14vw] md:text-[9vw] lg:text-[120px]"
               >
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-rich-black via-rich-black/70 to-rich-black/40">Handled</span><span className="text-rich-black">.</span>
@@ -125,7 +120,7 @@ export function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 2.8 }}
+            transition={{ duration: 0.6, delay: 1.15 }}
             className="font-sans text-[14px] md:text-[16px] font-500 text-rich-black/70 leading-[1.7] max-w-[440px] mt-5"
           >
             The premium managed marketplace for home services.
@@ -136,7 +131,7 @@ export function Hero() {
           <motion.div
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.2, delay: 3.0, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="mt-6 w-full max-w-[500px]"
           >
             <div className="bg-white shadow-[0_4px_30px_rgba(0,0,0,0.06)] p-5 sm:p-8">
@@ -188,7 +183,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 3.2 }}
+            transition={{ duration: 0.6, delay: 1.3 }}
             className="flex flex-wrap items-center gap-4 sm:gap-6 mt-6"
           >
             {[
