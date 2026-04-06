@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   },
   transpilePackages: ['motion'],
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
