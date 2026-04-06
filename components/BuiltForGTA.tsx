@@ -1,8 +1,6 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Building2, Home, Briefcase, Plane } from 'lucide-react';
-
 const neighborhoods = [
   'King West', 'Liberty Village', 'The Annex', 'Yorkville',
   'Leslieville', 'Queen West', 'North York', 'Midtown',
@@ -10,32 +8,6 @@ const neighborhoods = [
   'Vaughan', 'Markham', 'Richmond Hill', 'Oakville',
 ];
 
-const audiences = [
-  {
-    icon: Building2,
-    title: 'Condo Dwellers',
-    stat: '30%',
-    desc: 'of Toronto lives in condos. We built the booking flow for small spaces, busy schedules, and concierge access.',
-  },
-  {
-    icon: Home,
-    title: 'Homeowners',
-    stat: '2.7M',
-    desc: 'households in the GTA. From snow removal to deep cleaning, one platform handles your entire property.',
-  },
-  {
-    icon: Briefcase,
-    title: 'Property Managers',
-    stat: '200+',
-    desc: 'units managed per building. Our property portal handles maintenance requests, tenant cleanings, and vendor tracking.',
-  },
-  {
-    icon: Plane,
-    title: 'Airbnb Hosts',
-    stat: '12K+',
-    desc: 'active STR listings in Toronto. Automated turnover cleaning between guests with API integration.',
-  },
-];
 
 export function BuiltForGTA() {
   return (
@@ -62,63 +34,14 @@ export function BuiltForGTA() {
           viewport={{ once: true }}
           className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8"
         >
-          <h2 className="font-display text-[44px] md:text-[88px] font-800 leading-[0.88] tracking-[-0.03em] max-w-[700px]">
+          <h2 className="font-display text-[32px] sm:text-[44px] md:text-[88px] font-800 leading-[0.88] tracking-[-0.03em] max-w-[700px]">
             Your neighborhood<span className="text-gold">.</span><br />
             Your people<span className="text-gold">.</span>
           </h2>
-          <p className="font-sans text-[13px] font-600 text-warm-gray leading-[1.7] max-w-[300px] pb-3">
+          <p className="font-sans text-[13px] font-600 text-rich-black/65 leading-[1.7] max-w-[300px] pb-3">
             We don&apos;t just serve Toronto. We understand it. Every neighborhood, every building type, every season.
           </p>
         </motion.div>
-
-        {/* Audience Cards — Interactive Bento */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-border mb-20">
-          {audiences.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="relative bg-cream p-8 md:p-10 min-h-[320px] flex flex-col justify-between overflow-hidden group cursor-default"
-            >
-              {/* Hover gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/[0.08] to-gold/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-              {/* Giant watermark stat */}
-              <div className="absolute -top-2 -right-2 font-display text-[120px] md:text-[140px] font-800 leading-none text-rich-black/[0.03] group-hover:text-rich-black/[0.06] select-none pointer-events-none transition-colors duration-700">
-                {item.stat}
-              </div>
-
-              {/* Top */}
-              <div className="relative z-10">
-                <motion.div
-                  whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.5 } }}
-                  className="w-12 h-12 flex items-center justify-center mb-8 bg-rich-black/[0.04] group-hover:bg-rich-black text-gold group-hover:text-cream transition-all duration-500"
-                >
-                  <item.icon className="w-5 h-5" />
-                </motion.div>
-
-                <div className="flex items-baseline gap-1 mb-2">
-                  <span className="font-display text-[44px] md:text-[52px] font-800 tracking-[-0.04em] text-rich-black group-hover:text-warm-gray transition-colors duration-500">
-                    {item.stat}
-                  </span>
-                </div>
-
-                <h3 className="font-display text-[18px] md:text-[20px] font-800 tracking-[-0.02em] text-rich-black mb-3">
-                  {item.title}
-                </h3>
-              </div>
-
-              {/* Bottom */}
-              <div className="relative z-10 pt-5 border-t border-border group-hover:border-rich-black/10 transition-colors duration-500">
-                <p className="font-sans text-[12px] font-500 text-warm-gray group-hover:text-rich-black/60 leading-[1.6] transition-colors duration-500">
-                  {item.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
         {/* Neighborhood Map — Interactive coverage visualization */}
         <motion.div
@@ -126,7 +49,7 @@ export function BuiltForGTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative bg-rich-black p-8 md:p-12 overflow-hidden"
+          className="relative bg-rich-black p-5 sm:p-8 md:p-12 overflow-hidden"
         >
           {/* Ambient glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/[0.04] rounded-full blur-[120px] pointer-events-none" />
@@ -140,7 +63,7 @@ export function BuiltForGTA() {
                   Live Coverage
                 </span>
               </div>
-              <h3 className="font-display text-[28px] md:text-[40px] font-800 tracking-[-0.03em] text-cream">
+              <h3 className="font-display text-[22px] sm:text-[28px] md:text-[40px] font-800 tracking-[-0.03em] text-cream">
                 16 Neighborhoods<span className="text-gold">.</span> Growing<span className="text-gold">.</span>
               </h3>
             </div>
@@ -166,7 +89,7 @@ export function BuiltForGTA() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="relative bg-gold/[0.08] border border-gold/20 px-5 py-3 md:px-6 md:py-3.5 group cursor-default hover:bg-cream hover:border-cream hover:text-rich-black transition-all duration-400 overflow-hidden"
+                className="relative bg-gold/[0.08] border border-gold/20 px-4 py-3 sm:px-5 md:px-6 md:py-3.5 group cursor-default hover:bg-cream hover:border-cream hover:text-rich-black active:bg-cream transition-all duration-400 overflow-hidden min-h-[44px] flex items-center"
               >
                 {/* Shine sweep on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cream/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -185,7 +108,7 @@ export function BuiltForGTA() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 + i * 0.05 }}
-                className="relative border border-dashed border-cream/15 px-5 py-3 md:px-6 md:py-3.5 cursor-default"
+                className="relative border border-dashed border-cream/15 px-4 py-3 sm:px-5 md:px-6 md:py-3.5 cursor-default min-h-[44px] flex items-center"
               >
                 <span className="font-display text-[13px] md:text-[15px] font-700 text-cream/20 whitespace-nowrap">
                   {hood}
@@ -195,7 +118,7 @@ export function BuiltForGTA() {
           </div>
 
           {/* Bottom stat strip */}
-          <div className="relative z-10 flex flex-wrap items-center gap-8 mt-10 pt-8 border-t border-cream/[0.06]">
+          <div className="relative z-10 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-5 sm:gap-8 mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-cream/[0.06]">
             {[
               { val: '7M+', label: 'Population Served' },
               { val: '2.7M', label: 'GTA Households' },
@@ -203,8 +126,8 @@ export function BuiltForGTA() {
               { val: '24/7', label: 'Emergency Coverage' },
             ].map((s, i) => (
               <div key={i} className="flex items-baseline gap-2">
-                <span className="font-display text-[22px] md:text-[28px] font-800 text-cream tracking-[-0.02em]">{s.val}</span>
-                <span className="font-mono text-[8px] font-600 uppercase tracking-[0.2em] text-cream/30">{s.label}</span>
+                <span className="font-display text-[18px] sm:text-[22px] md:text-[28px] font-800 text-cream tracking-[-0.02em]">{s.val}</span>
+                <span className="font-mono text-[7px] sm:text-[8px] font-600 uppercase tracking-[0.2em] text-cream/30">{s.label}</span>
               </div>
             ))}
           </div>

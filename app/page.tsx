@@ -7,7 +7,7 @@ import { WhyTaskly } from '@/components/WhyTaskly';
 import { Services } from '@/components/Services';
 import { BuiltForGTA } from '@/components/BuiltForGTA';
 import { HowItWorks } from '@/components/HowItWorks';
-import { Trust } from '@/components/Trust';
+import { Testimonials } from '@/components/Testimonials';
 import { Pricing } from '@/components/Pricing';
 import { Cta } from '@/components/Cta';
 import { Footer } from '@/components/Footer';
@@ -19,25 +19,16 @@ export default function Home() {
       <CursorProvider />
       <NavBar />
 
-      {/* ACT 1: THE HOOK */}
       <Hero />
       <MarqueeBanner />
-
-      {/* ACT 2: THE PROBLEM */}
-      <TheProblem />
-
-      {/* ACT 3: THE SOLUTION REVEAL */}
-      <BeforeAfterReveal />
-      <WhyTaskly />
-
-      {/* ACT 4: THE PRODUCT */}
       <Services />
-      <BuiltForGTA />
+      <BeforeAfterReveal />
       <HowItWorks />
-
-      {/* ACT 5: TRUST & CONVERT */}
-      <Trust />
+      <TheProblem />
+      <WhyTaskly />
+      <Testimonials />
       <Pricing />
+      <BuiltForGTA />
       <Cta />
       <Footer />
     </main>

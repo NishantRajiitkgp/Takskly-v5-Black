@@ -1,4 +1,4 @@
-import type {Metadata} from 'next';
+import type {Metadata, Viewport} from 'next';
 import { Outfit, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -23,6 +23,13 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Taskly.ca — Home Services, Reimagined',
   description: 'The premium managed home services marketplace for Toronto & the GTA. Vetted professionals. Fixed prices. Effortless booking.',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

@@ -23,7 +23,7 @@ export function Footer() {
       {/* Large CTA banner inside footer */}
       <div className="relative border-b border-cream/[0.06] overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gold/[0.04] rounded-full blur-[150px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-cream/[0.03] rounded-full blur-[150px]" />
         </div>
 
         <div className="relative max-w-[1600px] mx-auto px-6 md:px-16 lg:px-24 py-20 md:py-28">
@@ -33,11 +33,11 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="font-mono text-[9px] font-700 uppercase tracking-[0.3em] text-gold block mb-5">
+              <span className="font-mono text-[9px] font-700 uppercase tracking-[0.3em] text-cream/40 block mb-5">
                 Ready?
               </span>
               <h3 className="font-display text-[48px] md:text-[80px] font-800 leading-[0.88] tracking-[-0.03em] text-cream">
-                Let&apos;s make your<br />home shine<span className="text-gold">.</span>
+                Let&apos;s make your<br />home shine<span className="text-cream/40">.</span>
               </h3>
             </motion.div>
 
@@ -74,7 +74,7 @@ export function Footer() {
           {/* Brand column — spans 5 cols */}
           <div className="md:col-span-5 flex flex-col">
             <Link href="/" className="font-display text-[32px] font-800 tracking-tight text-cream inline-block mb-4">
-              taskly<span className="text-gold">.</span>
+              taskly<span className="text-cream/40">.</span>
             </Link>
             <p className="font-sans text-[13px] font-500 text-cream/60 max-w-[280px] leading-[1.7] mb-10">
               The premium managed marketplace for home services. Vetted professionals. Fixed prices. Toronto & the GTA.
@@ -101,7 +101,7 @@ export function Footer() {
           <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-12">
             {footerLinks.map((column) => (
               <div key={column.title} className="flex flex-col gap-4">
-                <h4 className="font-mono text-[9px] font-700 uppercase tracking-[0.25em] text-gold mb-2">
+                <h4 className="font-mono text-[9px] font-700 uppercase tracking-[0.25em] text-cream/40 mb-2">
                   {column.title}
                 </h4>
                 <ul className="flex flex-col gap-3">
@@ -125,7 +125,7 @@ export function Footer() {
         {/* Newsletter / Contact strip */}
         <div className="border-t border-cream/[0.06] py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <span className="font-mono text-[9px] font-700 uppercase tracking-[0.25em] text-gold block mb-2">
+            <span className="font-mono text-[9px] font-700 uppercase tracking-[0.25em] text-cream/40 block mb-2">
               Stay Updated
             </span>
             <p className="font-sans text-[12px] font-500 text-cream/60">
@@ -136,7 +136,7 @@ export function Footer() {
             <input
               type="email"
               placeholder="your@email.com"
-              className="bg-cream/[0.04] border border-cream/[0.08] border-r-0 px-5 py-3.5 font-mono text-[12px] text-cream placeholder:text-cream/20 outline-none focus:border-gold/30 transition-colors w-full md:w-[280px]"
+              className="bg-cream/[0.04] border border-cream/[0.08] border-r-0 px-5 py-3.5 font-mono text-[12px] text-cream placeholder:text-cream/20 outline-none focus:border-cream/30 transition-colors w-full md:w-[280px]"
             />
             <button className="bg-cream/[0.08] border border-cream/[0.08] px-6 py-3.5 font-mono text-[10px] font-700 uppercase tracking-[0.15em] text-cream/70 hover:bg-cream hover:text-rich-black hover:border-cream transition-all duration-400 flex-shrink-0">
               Subscribe
@@ -145,14 +145,10 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-cream/[0.04] py-5 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="border-t border-cream/[0.04] py-5 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-6">
             <span className="font-mono text-[9px] font-500 uppercase tracking-[0.12em] text-cream/50">
-              &copy; 2026 Taskly.ca
-            </span>
-            <span className="font-mono text-[9px] font-500 text-cream/40">&middot;</span>
-            <span className="font-mono text-[9px] font-500 uppercase tracking-[0.12em] text-cream/50">
-              Toronto, Ontario
+              &copy; 2026 Taskly Technologies Inc.
             </span>
           </div>
           <div className="flex items-center gap-2">

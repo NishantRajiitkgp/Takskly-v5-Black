@@ -1,26 +1,31 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { MapPin, Sparkles, AlertTriangle, Wrench, Leaf } from 'lucide-react';
-
-const serviceCategories = [
-  { name: 'Cleaning', icon: Sparkles, items: ['Standard Clean', 'Deep Clean', 'Move-in / Move-out'] },
-  { name: 'Emergency', icon: AlertTriangle, items: ['Plumbing', 'Electrical', 'Locksmith'] },
-  { name: 'Maintenance', icon: Wrench, items: ['Handyman', 'Painting', 'Furniture Assembly'] },
-  { name: 'Seasonal', icon: Leaf, items: ['Snow Removal', 'Lawn Care', 'Gutter Cleaning'] },
-];
+import { MapPin } from 'lucide-react';
 
 export function Hero() {
   const [selectedService, setSelectedService] = useState('Standard Clean');
   const heroRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  // Start video only after splash screen reveal finishes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play();
+      }
+    }, 2400); // splash: 0.6s delay + 1.8s animation
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
-      {/* Opening Reveal — Gold Curtain Wipe */}
+      {/* Opening Reveal */}
       <motion.div
         initial={{ scaleY: 1 }}
         animate={{ scaleY: 0 }}
@@ -54,24 +59,25 @@ export function Hero() {
             className="absolute inset-0"
           >
             <video
-              autoPlay
+              ref={videoRef}
               loop
               muted
               playsInline
+              preload="auto"
               className="w-full h-full object-cover"
             >
-              <source src="/hero.mp4" type="video/mp4" />
+              <source src="/Hero.mp4" type="video/mp4" />
             </video>
           </motion.div>
 
-          {/* Right side crystal clear, fades to cream on the left for text */}
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-cream md:via-cream/20 md:to-cream" />
-          {/* Extra left text protection layer */}
-          <div className="absolute inset-0 bg-gradient-to-r from-cream/95 via-cream/60 to-transparent w-[55%]" />
-          {/* Bottom fade for booking bar readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-cream via-cream/20 to-transparent" />
-          {/* Subtle top fade for navbar */}
-          <div className="absolute top-0 left-0 right-0 h-[100px] bg-gradient-to-b from-cream/40 to-transparent" />
+          {/* Desktop: left side cream for text, right side crystal clear */}
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-cream via-cream/80 via-40% to-transparent to-55%" />
+          {/* Mobile: top overlay for text readability */}
+          <div className="md:hidden absolute inset-0 bg-gradient-to-b from-cream/60 via-cream/30 to-transparent h-[60%]" />
+          {/* Bottom fade — just enough for booking card */}
+          <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-cream/80 to-transparent" />
+          {/* Top fade for navbar */}
+          <div className="absolute top-0 left-0 right-0 h-[80px] bg-gradient-to-b from-cream/30 to-transparent" />
         </div>
 
         {/* Main Content */}
@@ -84,23 +90,23 @@ export function Hero() {
               transition={{ duration: 1, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3"
             >
-              <div className="w-2 h-2 rounded-full bg-gold" />
-              <span className="font-mono text-[10px] font-700 uppercase tracking-[0.3em] text-gold-dark">
+              <div className="w-2.5 h-2.5 rounded-full bg-green-700 animate-pulse" />
+              <span className="font-mono text-[11px] font-900 uppercase tracking-[0.3em] text-green-800">
                 Now in Toronto & GTA
               </span>
             </motion.div>
           </div>
 
-          {/* Headline — 2 lines */}
-          <h1 className="font-display leading-[0.92] font-800 tracking-[-0.03em] text-rich-black">
+          {/* Headline */}
+          <h1 className="font-display leading-[0.85] font-800 tracking-[-0.04em]">
             <div className="overflow-hidden">
               <motion.div
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.3, delay: 2.3, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[14vw] md:text-[9vw] lg:text-[120px]"
+                className="text-[14vw] md:text-[9vw] lg:text-[120px] text-rich-black"
               >
-                Your Home<span className="text-gold">.</span>
+                Your Home
               </motion.div>
             </div>
             <div className="overflow-hidden">
@@ -110,7 +116,7 @@ export function Hero() {
                 transition={{ duration: 1.3, delay: 2.4, ease: [0.16, 1, 0.3, 1] }}
                 className="text-[14vw] md:text-[9vw] lg:text-[120px]"
               >
-                Handled<span className="text-gold">.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rich-black via-rich-black/70 to-rich-black/40">Handled</span><span className="text-rich-black">.</span>
               </motion.div>
             </div>
           </h1>
@@ -120,71 +126,40 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 2.8 }}
-            className="font-sans text-[14px] md:text-[16px] font-500 text-rich-black/60 leading-[1.7] max-w-[440px] mt-8"
+            className="font-sans text-[14px] md:text-[16px] font-500 text-rich-black/70 leading-[1.7] max-w-[440px] mt-5"
           >
             The premium managed marketplace for home services.
             Vetted professionals. Fixed prices. Effortless booking.
           </motion.p>
 
-          {/* Trust Badges */}
+          {/* Booking Card — inline below subtitle */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 3.0 }}
-            className="flex flex-wrap items-center gap-6 mt-6"
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.2, delay: 3.0, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-6 w-full max-w-[500px]"
           >
-            {[
-              'CPIC Verified',
-              'Insured to $2M',
-              '$10K Protection',
-            ].map((badge) => (
-              <span key={badge} className="flex items-center gap-2">
-                <span className="text-gold text-[11px]">&#10003;</span>
-                <span className="font-mono text-[9px] font-700 uppercase tracking-[0.15em] text-rich-black/50">
-                  {badge}
-                </span>
-              </span>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* Booking Card — Vertical card on the right */}
-        <motion.div
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.2, delay: 3.0, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute bottom-8 right-6 md:bottom-12 md:right-16 lg:right-24 z-30 w-[calc(100%-48px)] md:w-[420px]"
-        >
-          <div className="bg-white border border-rich-black/[0.08] shadow-[0_8px_40px_rgba(13,13,13,0.08)]">
-            {/* Promo banner */}
-            <div className="flex items-center gap-2.5 px-6 py-3.5 bg-rich-black">
-              <Sparkles className="w-4 h-4 text-gold" />
-              <span className="font-mono text-[9px] font-700 uppercase tracking-[0.2em] text-cream">
-                First clean free &mdash; New customers only
-              </span>
-            </div>
-
-            <div className="px-6 py-6 space-y-5">
+            <div className="bg-white shadow-[0_4px_30px_rgba(0,0,0,0.06)] p-5 sm:p-8">
               {/* Address Input */}
-              <div className="flex items-center gap-3 border-b border-rich-black/[0.08] pb-5">
-                <MapPin className="w-5 h-5 text-gold-dark flex-shrink-0" />
+              <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-rich-black/70 flex-shrink-0" strokeWidth={2} />
                 <input
                   type="text"
-                  placeholder="Where should we come? (Address)"
-                  className="bg-transparent border-none outline-none font-mono text-[11px] font-600 uppercase tracking-[0.1em] text-rich-black placeholder:text-rich-black/35 w-full"
+                  placeholder="Where should we come?"
+                  className="bg-transparent border-none outline-none font-mono text-[12px] font-600 uppercase tracking-[0.08em] text-rich-black placeholder:text-rich-black/30 w-full"
                 />
               </div>
 
               {/* Service Chips */}
-              <div className="flex flex-wrap gap-2">
-                {['Standard Clean', 'Plumbing', 'Handyman', 'Snow Removal'].map((service) => (
+              <div className="flex flex-wrap gap-2 sm:gap-2.5 mb-6 sm:mb-10">
+                {['Standard Clean', 'Plumbing', 'Handyman'].map((service) => (
                   <button
                     key={service}
                     onClick={() => setSelectedService(service)}
-                    className={`px-4 py-2.5 rounded-full font-mono text-[10px] font-700 uppercase tracking-[0.1em] transition-all duration-300 ${
+                    className={`px-4 sm:px-6 py-3 rounded-full font-mono text-[10px] sm:text-[11px] font-700 uppercase tracking-[0.06em] transition-all duration-300 min-h-[44px] ${
                       selectedService === service
                         ? 'bg-rich-black text-cream'
-                        : 'bg-transparent border border-rich-black/[0.12] text-rich-black/70 hover:border-rich-black/30'
+                        : 'bg-transparent border border-rich-black/15 text-rich-black/70 hover:border-rich-black/30 active:bg-rich-black/5'
                     }`}
                   >
                     {service}
@@ -193,24 +168,42 @@ export function Hero() {
               </div>
 
               {/* Price + CTA */}
-              <div className="flex items-end justify-between pt-2">
+              <div className="flex items-end justify-between gap-3">
                 <div>
-                  <span className="font-mono text-[9px] font-600 uppercase tracking-[0.2em] text-warm-gray block">
+                  <span className="font-mono text-[10px] font-600 uppercase tracking-[0.15em] text-rich-black/60 block mb-1">
                     Service from
                   </span>
-                  <span className="font-display text-[40px] font-800 leading-none tracking-[-0.03em] text-rich-black">
+                  <span className="font-display text-[36px] sm:text-[48px] font-800 leading-none tracking-[-0.03em] text-rich-black">
                     $99
                   </span>
                 </div>
-                <button className="relative overflow-hidden bg-rich-black text-cream px-7 py-3.5 rounded-full group flex items-center gap-2">
-                  <div className="absolute inset-0 bg-warm-gray rounded-full translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-                  <span className="relative z-10 font-mono text-[10px] font-700 uppercase tracking-[0.15em] group-hover:text-rich-black transition-colors duration-400">
-                    Book Now
-                  </span>
+                <button className="bg-rich-black text-cream px-6 sm:px-8 py-4 rounded-full font-mono text-[12px] sm:text-[14px] font-800 uppercase tracking-[0.08em] hover:bg-rich-black/85 active:bg-rich-black/75 transition-colors duration-300 min-h-[48px] whitespace-nowrap">
+                  Book Now
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Trust Badges */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 3.2 }}
+            className="flex flex-wrap items-center gap-4 sm:gap-6 mt-6"
+          >
+            {[
+              'CPIC Verified',
+              'Insured to $2M',
+              '$10K Protection',
+            ].map((badge) => (
+              <span key={badge} className="flex items-center gap-2">
+                <span className="text-green-700 text-[13px] font-800">&#10003;</span>
+                <span className="font-mono text-[10px] font-800 uppercase tracking-[0.15em] text-rich-black">
+                  {badge}
+                </span>
+              </span>
+            ))}
+          </motion.div>
         </motion.div>
 
       </section>

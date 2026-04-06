@@ -33,7 +33,7 @@ export function Cta() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display text-[52px] md:text-[110px] lg:text-[140px] font-800 leading-[0.85] tracking-[-0.03em]">
+          <h2 className="font-display text-[38px] sm:text-[52px] md:text-[110px] lg:text-[140px] font-800 leading-[0.85] tracking-[-0.03em]">
             Your home<br />
             deserves<br />
             better<span className="text-gold">.</span>
@@ -46,7 +46,7 @@ export function Cta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="font-sans text-[13px] md:text-[15px] font-600 text-rich-black/50 mt-10 max-w-[480px] mx-auto leading-[1.7]"
+          className="font-sans text-[13px] md:text-[15px] font-600 text-rich-black/70 mt-10 max-w-[480px] mx-auto leading-[1.7]"
         >
           Join 3,000+ GTA homeowners who stopped settling for unreliable service.
         </motion.p>
@@ -57,18 +57,18 @@ export function Cta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 mt-10 justify-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-10 justify-center w-full sm:w-auto px-2 sm:px-0"
         >
           <Link
             href="#book"
-            className="inline-flex items-center justify-center bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-9 py-5 hover:bg-warm-gray transition-all duration-500 group"
+            className="inline-flex items-center justify-center bg-rich-black text-cream font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-9 py-5 hover:bg-warm-gray active:bg-warm-gray/80 transition-all duration-500 group min-h-[48px]"
           >
             <span className="mr-3">Book Your First Clean</span>
             <span className="group-hover:translate-x-1.5 transition-transform duration-400">&rarr;</span>
           </Link>
           <Link
             href="#provider"
-            className="inline-flex items-center justify-center bg-transparent border border-border text-rich-black font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-9 py-5 hover:border-rich-black hover:text-rich-black transition-all duration-400"
+            className="inline-flex items-center justify-center bg-transparent border border-border text-rich-black font-mono text-[11px] font-700 uppercase tracking-[0.15em] px-9 py-5 hover:border-rich-black active:bg-rich-black/5 transition-all duration-400 min-h-[48px]"
           >
             Become a Provider
           </Link>
